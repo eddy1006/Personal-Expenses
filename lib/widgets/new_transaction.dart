@@ -21,10 +21,11 @@ class _NewTransactionState extends State<NewTransaction> {
     final titleText = titleController.text;
     final amountText = double.parse(amountController.text);
 
-    if (titleText == "" || amountText <= 0) return;
+    if (titleText == "" || amountText <= 0 || _selectedDate == DateTime(1999))
+      return;
     print(titleController.text);
     print(amountController.text);
-    widget.addTx(titleText, amountText);
+    widget.addTx(titleText, amountText, _selectedDate);
     Navigator.pop(context);
   }
 
